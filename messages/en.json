@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "cart": "Cart",
+    "order": "Order Now"
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Get fresh deals in your inbox",
+      "subtitle": "Weekly offers, seasonal picks, and exclusive discounts.",
+      "placeholder": "Your email address",
+      "cta": "Subscribe"
+    },
+    "brand": {
+      "description": "Bringing the freshest produce from local farms straight to your door. Quality you can taste, prices you will love."
+    },
+    "shop": {
+      "title": "Shop"
+    },
+    "help": {
+      "title": "Help"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "cart": {
+    "continue": "Continue Shopping",
+    "coupon": {
+      "apply": "Apply",
+      "label": "Promo Code",
+      "placeholder": "Enter code",
+      "success": "Coupon applied!"
+    },
+    "cta": "Proceed to Checkout",
+    "delivery": {
+      "free": "Free delivery on orders over $50",
+      "progress": "You're ${{amount}} away from free shipping"
+    },
+    "empty": {
+      "cta": "Start Shopping",
+      "description": "Add fresh produce and groceries to your cart to get started.",
+      "title": "Your cart is empty"
+    },
+    "guarantee": {
+      "description": "We guarantee farm-fresh quality or your money back.",
+      "title": "Freshness Guaranteed"
+    },
+    "heading": "Shopping Cart",
+    "subheading": "Review your items before checkout",
+    "summary": {
+      "delivery": "Delivery",
+      "discount": "Discount",
+      "saved": "You saved {{amount}}",
+      "subtitle": "Order summary",
+      "subtotal": "Subtotal",
+      "title": "Order Total",
+      "total": "Total"
+    },
+    "title": "Your Cart",
+    "trust": {
+      "fresh": "100% Fresh Produce",
+      "returns": "30-Day Returns",
+      "secure": "Secure Checkout"
+    }
+  },
+  "orderConfirmation": {
+    "badge": "Order Confirmed",
+    "heading": "Thank you for your order!",
+    "subheading": "Your fresh groceries are on the way."
+  },
+  "productDetail": {
+    "addToCart": "Add to Cart",
+    "added": "Added to cart",
+    "back": "Back to Results",
+    "basedOn": "Based on {{count}} reviews",
+    "easyReturns": "Easy Returns",
+    "freeDelivery": "Free Delivery",
+    "freshGuarantee": "Freshness Guaranteed",
+    "inStock": "In Stock",
+    "nutritionSub": "Per 100g serving",
+    "nutritionTitle": "Nutrition Facts",
+    "outOfStock": "Out of Stock",
+    "reviews": "Customer Reviews",
+    "storageTitle": "Storage Tips",
+    "tab": {
+      "reviews": "Reviews"
+    },
+    "verified": "Verified Purchase",
+    "whyChoose": "Why Choose This",
+    "youMayAlsoLike": "You May Also Like"
+  }
+}

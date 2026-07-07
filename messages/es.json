@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "shop": "Tienda",
+    "cart": "Carrito",
+    "order": "Pedir Ahora"
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Recibe ofertas frescas en tu bandeja de entrada",
+      "subtitle": "Ofertas semanales, selecciones de temporada y descuentos exclusivos.",
+      "placeholder": "Tu dirección de correo electrónico",
+      "cta": "Suscribirse"
+    },
+    "brand": {
+      "description": "Llevamos los productos más frescos de granjas locales directamente a tu puerta. Calidad que puedes probar, precios que amarás."
+    },
+    "shop": {
+      "title": "Tienda"
+    },
+    "help": {
+      "title": "Ayuda"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "cart": {
+    "continue": "Continuar Comprando",
+    "coupon": {
+      "apply": "Aplicar",
+      "label": "Código Promocional",
+      "placeholder": "Ingresa el código",
+      "success": "¡Cupón aplicado!"
+    },
+    "cta": "Proceder al Pago",
+    "delivery": {
+      "free": "Envío gratis en pedidos mayores a $50",
+      "progress": "Te faltan ${{amount}} para envío gratis"
+    },
+    "empty": {
+      "cta": "Comenzar a Comprar",
+      "description": "Agrega productos frescos y abarrotes a tu carrito para comenzar.",
+      "title": "Tu carrito está vacío"
+    },
+    "guarantee": {
+      "description": "Garantizamos productos frescos de granja o te devolvemos tu dinero.",
+      "title": "Frescura Garantizada"
+    },
+    "heading": "Carrito de Compras",
+    "subheading": "Revisa tus artículos antes de pagar",
+    "summary": {
+      "delivery": "Envío",
+      "discount": "Descuento",
+      "saved": "Ahorraste {{amount}}",
+      "subtitle": "Resumen del pedido",
+      "subtotal": "Subtotal",
+      "title": "Total del Pedido",
+      "total": "Total"
+    },
+    "title": "Tu Carrito",
+    "trust": {
+      "fresh": "Productos 100% Frescos",
+      "returns": "Devoluciones en 30 Días",
+      "secure": "Compra Segura"
+    }
+  },
+  "orderConfirmation": {
+    "badge": "Pedido Confirmado",
+    "heading": "¡Gracias por tu pedido!",
+    "subheading": "Tus productos frescos están en camino."
+  },
+  "productDetail": {
+    "addToCart": "Añadir al Carrito",
+    "added": "Añadido al carrito",
+    "back": "Volver a Resultados",
+    "basedOn": "Basado en {{count}} reseñas",
+    "easyReturns": "Devoluciones Fáciles",
+    "freeDelivery": "Envío Gratis",
+    "freshGuarantee": "Frescura Garantizada",
+    "inStock": "En Stock",
+    "nutritionSub": "Por porción de 100g",
+    "nutritionTitle": "Información Nutricional",
+    "outOfStock": "Agotado",
+    "reviews": "Reseñas de Clientes",
+    "storageTitle": "Consejos de Almacenamiento",
+    "tab": {
+      "reviews": "Reseñas"
+    },
+    "verified": "Compra Verificada",
+    "whyChoose": "Por Qué Elegir Este",
+    "youMayAlsoLike": "También Te Puede Gustar"
+  }
+}
