@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ShoppingCart, Star, Truck, Shield, Leaf, Clock, ChevronRight, ArrowRight, Check, Heart, Sparkles, Package } from 'lucide-react';
@@ -197,14 +197,14 @@ const STATS = [
 
 function StarRating({ rating, count }: { rating: number; count: number }) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-1" data-atomic-id="amgf7s">
       {[1, 2, 3, 4, 5].map((s) => (
         <Star
           key={s}
           className={`w-3.5 h-3.5 ${s <= Math.round(rating) ? "fill-[#F9A825] text-[#F9A825]" : "text-gray-200 fill-gray-200"}`}
         />
       ))}
-      <span className="text-xs text-gray-500 ml-1">({count})</span>
+      <span className="text-xs text-gray-500 ml-1" data-atomic-id="a136mujg">({count})</span>
     </div>
   );
 }
@@ -218,7 +218,9 @@ function BadgePill({ badge }: { badge: string }) {
     New: "bg-sky-100 text-sky-700",
   };
   return (
-    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors[badge] ?? "bg-gray-100 text-gray-600"}`}>
+    <span
+      className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors[badge] ?? "bg-gray-100 text-gray-600"}`}
+      data-atomic-id="a9q4hl">
       {badge}
     </span>
   );
@@ -254,7 +256,9 @@ function ProductCard({ product }: { product: typeof FEATURED_PRODUCTS[0] }) {
       transition={{ duration: 0.25 }}
       className="group bg-white rounded-2xl border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_16px_-4px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col"
     >
-      <div className="relative overflow-hidden bg-gray-50 aspect-[4/3]">
+      <div
+        className="relative overflow-hidden bg-gray-50 aspect-[4/3]"
+        data-atomic-id="abi2ouo">
         <img
           src={product.image}
           alt={product.name}
@@ -262,32 +266,42 @@ function ProductCard({ product }: { product: typeof FEATURED_PRODUCTS[0] }) {
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = "https://images.stockcake.com/public/7/8/f/78f27b46-a70c-4a90-9af4-9a1d29a85a8b_medium/farmer-harvesting-vegetables-stockcake.jpg";
           }}
-        />
-        <div className="absolute top-3 left-3 flex gap-1.5">
+          data-atomic-id="a1i022bx" />
+        <div className="absolute top-3 left-3 flex gap-1.5" data-atomic-id="a1i1gs5x">
           {product.badge && <BadgePill badge={product.badge} />}
         </div>
         <button
           onClick={() => setLiked((v) => !v)}
           className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:scale-110 transition-transform duration-200"
           aria-label="Wishlist"
-        >
+          data-atomic-id="a1sm0rjk">
           <Heart className={`w-4 h-4 transition-colors ${liked ? "fill-rose-500 text-rose-500" : "text-gray-400"}`} />
         </button>
       </div>
-      <div className="p-4 flex flex-col flex-1">
-        <p className="text-[11px] font-semibold text-[#2E7D32] uppercase tracking-wider mb-1">{product.category}</p>
-        <h3 className="font-bold text-gray-900 text-sm leading-snug mb-1">{product.name}</h3>
-        <p className="text-xs text-gray-500 mb-2 leading-relaxed line-clamp-2">{product.description}</p>
+      <div className="p-4 flex flex-col flex-1" data-atomic-id="abjhiz6">
+        <p
+          className="text-[11px] font-semibold text-[#2E7D32] uppercase tracking-wider mb-1"
+          data-atomic-id="aesopgi">{product.category}</p>
+        <h3
+          className="font-bold text-gray-900 text-sm leading-snug mb-1"
+          data-atomic-id="a1q40jkf">{product.name}</h3>
+        <p
+          className="text-xs text-gray-500 mb-2 leading-relaxed line-clamp-2"
+          data-atomic-id="aesosti">{product.description}</p>
         <StarRating rating={product.rating} count={product.reviews} />
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
-          <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-extrabold text-gray-900">${product.price.toFixed(2)}</span>
+        <div
+          className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50"
+          data-atomic-id="a1oxkuvx">
+          <div data-atomic-id="a1xems8w">
+            <div className="flex items-baseline gap-1.5" data-atomic-id="ac53ur">
+              <span
+                className="text-lg font-extrabold text-gray-900"
+                data-atomic-id="a1bmi239">${product.price.toFixed(2)}</span>
               {product.originalPrice && (
-                <span className="text-xs text-gray-400 line-through">${product.originalPrice.toFixed(2)}</span>
+                <span className="text-xs text-gray-400 line-through" data-atomic-id="a7osktf">${product.originalPrice.toFixed(2)}</span>
               )}
             </div>
-            <p className="text-[11px] text-gray-400">{product.weight}</p>
+            <p className="text-[11px] text-gray-400" data-atomic-id="a5qnbki">{product.weight}</p>
           </div>
           <motion.button
             whileTap={{ scale: 0.93 }}
@@ -328,17 +342,27 @@ export default function HomePage() {
     : { initial: "hidden", whileInView: "visible", viewport: { once: true, margin: "-80px" } };
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden" data-atomic-id="ab01ars">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[92vh] flex items-center bg-gradient-to-br from-[#F1F8E9] via-white to-[#E8F5E9] pt-20 pb-16 overflow-hidden">
+      <section
+        className="relative min-h-[92vh] flex items-center bg-gradient-to-br from-[#F1F8E9] via-white to-[#E8F5E9] pt-20 pb-16 overflow-hidden"
+        data-atomic-id="a1cu1h8d">
         {/* Background texture */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#A5D6A7]/20 blur-[120px] translate-x-1/3 -translate-y-1/4" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#C8E6C9]/30 blur-[100px] -translate-x-1/4 translate-y-1/4" />
+        <div className="absolute inset-0 pointer-events-none" data-atomic-id="ay4zfm8">
+          <div
+            className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#A5D6A7]/20 blur-[120px] translate-x-1/3 -translate-y-1/4"
+            data-atomic-id="aivdp8z" />
+          <div
+            className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#C8E6C9]/30 blur-[100px] -translate-x-1/4 translate-y-1/4"
+            data-atomic-id="aiwsjdh" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10"
+          data-atomic-id="ay6e9qq">
+          <div
+            className="grid lg:grid-cols-2 gap-12 items-center"
+            data-atomic-id="apn99lh">
             {/* Left copy */}
             <motion.div
               {...motionProps}
@@ -347,18 +371,30 @@ export default function HomePage() {
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#A5D6A7] rounded-full px-4 py-1.5 mb-6">
                 <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />
-                <span className="text-xs font-bold text-[#2E7D32] tracking-wide uppercase">Farm Fresh, Delivered Fast</span>
+                <span
+                  className="text-xs font-bold text-[#2E7D32] tracking-wide uppercase"
+                  data-atomic-id="au6d11t">Farm Fresh, Delivered Fast</span>
               </motion.div>
 
               <motion.h1
                 variants={fadeInUp}
                 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#1B5E20] leading-[1.05] tracking-tight text-balance mb-6"
               >
-                Groceries that<br />
-                <span className="text-[#2E7D32] relative">
+                Groceries that<br data-atomic-id="axhw243" />
+                <span className="text-[#2E7D32] relative" data-atomic-id="a14myikz">
                   taste like home.
-                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 9C50 3 100 1 150 4C200 7 250 9 298 5" stroke="#F9A825" strokeWidth="3" strokeLinecap="round"/>
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full"
+                    viewBox="0 0 300 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-atomic-id="ankvwgk">
+                    <path
+                      d="M2 9C50 3 100 1 150 4C200 7 250 9 298 5"
+                      stroke="#F9A825"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      data-atomic-id="a1j3iqno" />
                   </svg>
                 </span>
               </motion.h1>
@@ -391,12 +427,14 @@ export default function HomePage() {
                   { icon: Truck, text: "Free delivery over $35" },
                   { icon: Leaf, text: "Certified organic" },
                   { icon: Clock, text: "Same-day delivery" },
-                ].map((item) => (
-                  <div key={item.text} className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
-                    <item.icon className="w-3.5 h-3.5 text-[#2E7D32]" />
-                    {item.text}
-                  </div>
-                ))}
+                ].map((item, __atomicIdx) => (<div
+                  key={item.text}
+                  className="flex items-center gap-1.5 text-xs text-gray-500 font-medium"
+                  data-atomic-id="a61o7n"
+                  data-atomic-instance={__atomicIdx}>
+                  <item.icon className="w-3.5 h-3.5 text-[#2E7D32]" />
+                  {item.text}
+                </div>))}
               </motion.div>
             </motion.div>
 
@@ -406,9 +444,13 @@ export default function HomePage() {
               variants={slideInRight}
               className="relative hidden lg:block"
             >
-              <div className="relative w-full aspect-square max-w-[520px] ml-auto">
+              <div
+                className="relative w-full aspect-square max-w-[520px] ml-auto"
+                data-atomic-id="aqffpfl">
                 {/* Main image */}
-                <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-[0_24px_80px_-16px_rgba(0,0,0,0.18)]">
+                <div
+                  className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-[0_24px_80px_-16px_rgba(0,0,0,0.18)]"
+                  data-atomic-id="a1it9xra">
                   <img
                     src="https://thumbs.dreamstime.com/b/wireframe-grocery-basket-overflowing-colorful-array-food-items-contents-include-fresh-produce-such-as-tomatoes-422576199.jpg"
                     alt="Fresh grocery basket overflowing with colourful produce"
@@ -416,8 +458,10 @@ export default function HomePage() {
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src = "https://images.stockcake.com/public/7/8/f/78f27b46-a70c-4a90-9af4-9a1d29a85a8b_medium/farmer-harvesting-vegetables-stockcake.jpg";
                     }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                    data-atomic-id="a1dfj0wz" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"
+                    data-atomic-id="a1dgxqqz" />
                 </div>
 
                 {/* Floating card 1 */}
@@ -426,10 +470,14 @@ export default function HomePage() {
                   transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -left-10 top-1/4 bg-white rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-black/5 flex items-center gap-3"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] flex items-center justify-center text-xl">🍓</div>
-                  <div>
-                    <p className="text-xs font-bold text-gray-900">Organic Strawberries</p>
-                    <p className="text-[11px] text-[#2E7D32] font-semibold">$4.99 / 500g</p>
+                  <div
+                    className="w-10 h-10 rounded-xl bg-[#E8F5E9] flex items-center justify-center text-xl"
+                    data-atomic-id="a1qza1bh">🍓</div>
+                  <div data-atomic-id="a1r0ovfz">
+                    <p className="text-xs font-bold text-gray-900" data-atomic-id="am1o5lr">Organic Strawberries</p>
+                    <p
+                      className="text-[11px] text-[#2E7D32] font-semibold"
+                      data-atomic-id="am1o7a9">$4.99 / 500g</p>
                   </div>
                 </motion.div>
 
@@ -439,15 +487,15 @@ export default function HomePage() {
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
                   className="absolute -right-8 bottom-1/4 bg-white rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-black/5"
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="flex">
+                  <div className="flex items-center gap-2 mb-1" data-atomic-id="a1xv1ewo">
+                    <div className="flex" data-atomic-id="a1racwl7">
                       {[1,2,3,4,5].map((s) => (
                         <Star key={s} className="w-3 h-3 fill-[#F9A825] text-[#F9A825]" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-bold text-gray-700">4.9</span>
+                    <span className="text-[11px] font-bold text-gray-700" data-atomic-id="atwhln0">4.9</span>
                   </div>
-                  <p className="text-[11px] text-gray-500">50,000+ happy customers</p>
+                  <p className="text-[11px] text-gray-500" data-atomic-id="apyinev">50,000+ happy customers</p>
                 </motion.div>
 
                 {/* Floating badge */}
@@ -456,40 +504,46 @@ export default function HomePage() {
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -top-4 right-12 bg-[#F9A825] text-white rounded-2xl px-3 py-2 shadow-lg"
                 >
-                  <p className="text-[11px] font-extrabold">Free Delivery</p>
-                  <p className="text-[10px] opacity-90">Orders over $35</p>
+                  <p className="text-[11px] font-extrabold" data-atomic-id="akorkzt">Free Delivery</p>
+                  <p className="text-[10px] opacity-90" data-atomic-id="akormob">Orders over $35</p>
                 </motion.div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* ── Stats bar ────────────────────────────────────────────────────── */}
-      <section className="bg-[#2E7D32] py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#2E7D32] py-10" data-atomic-id="a10205tt">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-atomic-id="a1bnbq6q">
           <motion.div
             {...motionProps}
             variants={staggerContainer}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-white/20"
           >
-            {STATS.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeInUp}
-                className="text-center px-6"
-              >
-                <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">{stat.value}</p>
-                <p className="text-sm text-green-200 mt-1 font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
+            {STATS.map((stat, __atomicIdx) => (<motion.div
+              key={stat.label}
+              variants={fadeInUp}
+              className="text-center px-6"
+            >
+              <p
+                className="text-3xl md:text-4xl font-extrabold text-white tracking-tight"
+                data-atomic-id="ay5gixf"
+                data-atomic-instance={__atomicIdx}>{stat.value}</p>
+              <p
+                className="text-sm text-green-200 mt-1 font-medium"
+                data-atomic-id="ay5gklx"
+                data-atomic-instance={__atomicIdx}>{stat.label}</p>
+            </motion.div>))}
           </motion.div>
         </div>
       </section>
-
       {/* ── Categories ───────────────────────────────────────────────────── */}
-      <section id="categories" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="categories" className="py-24 bg-white" data-atomic-id="atsvg24">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-atomic-id="a1p4dldp">
           <motion.div
             {...motionProps}
             variants={staggerContainer}
@@ -509,35 +563,40 @@ export default function HomePage() {
             variants={staggerContainer}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"
           >
-            {CATEGORIES_DISPLAY.map((cat) => (
-              <motion.div
-                key={cat.name}
-                variants={scaleIn}
-                whileHover={{ y: -6, scale: 1.03 }}
-                transition={{ duration: 0.22 }}
+            {CATEGORIES_DISPLAY.map((cat, __atomicIdx) => (<motion.div
+              key={cat.name}
+              variants={scaleIn}
+              whileHover={{ y: -6, scale: 1.03 }}
+              transition={{ duration: 0.22 }}
+            >
+              <Link
+                href="/shop"
+                className={`flex flex-col items-center gap-3 p-5 rounded-2xl border ${cat.color} hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 group`}
               >
-                <Link
-                  href="/shop"
-                  className={`flex flex-col items-center gap-3 p-5 rounded-2xl border ${cat.color} hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 group`}
-                >
-                  <span className="text-4xl group-hover:scale-110 transition-transform duration-200">{cat.icon}</span>
-                  <span className={`text-xs font-bold text-center ${cat.accent}`}>{cat.name}</span>
-                </Link>
-              </motion.div>
-            ))}
+                <span
+                  className="text-4xl group-hover:scale-110 transition-transform duration-200"
+                  data-atomic-id="auiospx"
+                  data-atomic-instance={__atomicIdx}>{cat.icon}</span>
+                <span
+                  className={`text-xs font-bold text-center ${cat.accent}`}
+                  data-atomic-id="avtaeuf"
+                  data-atomic-instance={__atomicIdx}>{cat.name}</span>
+              </Link>
+            </motion.div>))}
           </motion.div>
         </div>
       </section>
-
       {/* ── Featured Products ─────────────────────────────────────────────── */}
-      <section id="featured" className="py-24 bg-[#F9FBF7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="featured" className="py-24 bg-[#F9FBF7]" data-atomic-id="ah0u4nk">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-atomic-id="a3n0o3l">
           <motion.div
             {...motionProps}
             variants={staggerContainer}
             className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
           >
-            <div>
+            <div data-atomic-id="a1ldollz">
               <motion.p variants={fadeInUp} className="text-xs font-bold text-[#2E7D32] uppercase tracking-widest mb-3">Hand-Picked for You</motion.p>
               <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight text-balance">
                 Today's freshest picks
@@ -565,18 +624,23 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       {/* ── Value Props ───────────────────────────────────────────────────── */}
-      <section id="about" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-24 bg-white" data-atomic-id="a48st90">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-atomic-id="ah6rssl">
+          <div
+            className="grid lg:grid-cols-2 gap-16 items-center"
+            data-atomic-id="aij94tk">
             {/* Left image */}
             <motion.div
               {...motionProps}
               variants={slideInLeft}
               className="relative"
             >
-              <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-[0_24px_80px_-16px_rgba(0,0,0,0.15)]">
+              <div
+                className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-[0_24px_80px_-16px_rgba(0,0,0,0.15)]"
+                data-atomic-id="ajcjlzk">
                 <img
                   src="https://images.stockcake.com/public/7/8/f/78f27b46-a70c-4a90-9af4-9a1d29a85a8b_medium/farmer-harvesting-vegetables-stockcake.jpg"
                   alt="Local farmer harvesting fresh vegetables at sunrise"
@@ -584,24 +648,33 @@ export default function HomePage() {
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).src = "https://images.stockcake.com/public/7/8/f/78f27b46-a70c-4a90-9af4-9a1d29a85a8b_medium/farmer-harvesting-vegetables-stockcake.jpg";
                   }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1B5E20]/30 to-transparent" />
+                  data-atomic-id="a1yq1n9p" />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-[#1B5E20]/30 to-transparent"
+                  data-atomic-id="a1yrgd3p" />
               </div>
               {/* Overlay card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-black/5">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-[#E8F5E9] flex items-center justify-center">
+              <div
+                className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-black/5"
+                data-atomic-id="ajfda8k">
+                <div className="flex items-center gap-3 mb-2" data-atomic-id="ad8olp3">
+                  <div
+                    className="w-10 h-10 rounded-xl bg-[#E8F5E9] flex items-center justify-center"
+                    data-atomic-id="ae3ho6y">
                     <Package className="w-5 h-5 text-[#2E7D32]" />
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-gray-900">200+ Farm Partners</p>
-                    <p className="text-xs text-gray-500">All within 150 miles of your door</p>
+                  <div data-atomic-id="ae4wibg">
+                    <p className="text-sm font-bold text-gray-900" data-atomic-id="a1bu7gjw">200+ Farm Partners</p>
+                    <p className="text-xs text-gray-500" data-atomic-id="a1bu7i8e">All within 150 miles of your door</p>
                   </div>
                 </div>
-                <div className="flex gap-1 mt-3">
-                  {[1,2,3,4,5,6,7,8].map((i) => (
-                    <div key={i} className="flex-1 h-1.5 rounded-full bg-[#2E7D32]" style={{ opacity: 0.3 + i * 0.09 }} />
-                  ))}
+                <div className="flex gap-1 mt-3" data-atomic-id="ada3ftl">
+                  {[1,2,3,4,5,6,7,8].map((i, __atomicIdx) => (<div
+                    key={i}
+                    className="flex-1 h-1.5 rounded-full bg-[#2E7D32]"
+                    style={{ opacity: 0.3 + i * 0.09 }}
+                    data-atomic-id="aji9r1j"
+                    data-atomic-instance={__atomicIdx} />))}
                 </div>
               </div>
             </motion.div>
@@ -620,32 +693,40 @@ export default function HomePage() {
               </motion.p>
 
               <motion.div variants={staggerContainer} className="grid sm:grid-cols-2 gap-5">
-                {VALUE_PROPS.map((vp) => (
-                  <motion.div
-                    key={vp.title}
-                    variants={fadeInUp}
-                    whileHover={{ y: -3 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex gap-4 p-5 rounded-2xl border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_16px_-4px_rgba(0,0,0,0.06)] bg-white"
-                  >
-                    <div className={`w-11 h-11 rounded-xl ${vp.color} flex items-center justify-center flex-shrink-0`}>
-                      <vp.icon className={`w-5 h-5 ${vp.iconColor}`} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-gray-900 mb-1">{vp.title}</p>
-                      <p className="text-xs text-gray-500 leading-relaxed">{vp.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                {VALUE_PROPS.map((vp, __atomicIdx) => (<motion.div
+                  key={vp.title}
+                  variants={fadeInUp}
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex gap-4 p-5 rounded-2xl border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_16px_-4px_rgba(0,0,0,0.06)] bg-white"
+                >
+                  <div
+                    className={`w-11 h-11 rounded-xl ${vp.color} flex items-center justify-center flex-shrink-0`}
+                    data-atomic-id="a1a8ugi3"
+                    data-atomic-instance={__atomicIdx}>
+                    <vp.icon className={`w-5 h-5 ${vp.iconColor}`} />
+                  </div>
+                  <div data-atomic-id="a1aa9aml" data-atomic-instance={__atomicIdx}>
+                    <p
+                      className="text-sm font-bold text-gray-900 mb-1"
+                      data-atomic-id="a1vaj4l9"
+                      data-atomic-instance={__atomicIdx}>{vp.title}</p>
+                    <p
+                      className="text-xs text-gray-500 leading-relaxed"
+                      data-atomic-id="a1vaj69r"
+                      data-atomic-instance={__atomicIdx}>{vp.description}</p>
+                  </div>
+                </motion.div>))}
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
-      <section id="reviews" className="py-24 bg-[#F1F8E9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="reviews" className="py-24 bg-[#F1F8E9]" data-atomic-id="aoj808f">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-atomic-id="a11lzvi8">
           <motion.div
             {...motionProps}
             variants={staggerContainer}
@@ -670,14 +751,26 @@ export default function HomePage() {
                 transition={{ duration: 0.22 }}
                 className={`bg-white rounded-2xl p-7 border border-black/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col ${i === 1 ? "md:mt-6" : ""}`}
               >
-                <div className="flex items-center gap-1 mb-4">
+                <div
+                  className="flex items-center gap-1 mb-4"
+                  data-atomic-id="a13snquu"
+                  data-atomic-instance={i}>
                   {[1,2,3,4,5].map((s) => (
                     <Star key={s} className="w-4 h-4 fill-[#F9A825] text-[#F9A825]" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed flex-1 mb-6 text-pretty">"{review.text}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-50">
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-[#E8F5E9] flex-shrink-0">
+                <p
+                  className="text-gray-700 text-sm leading-relaxed flex-1 mb-6 text-pretty"
+                  data-atomic-id="aav3ts5"
+                  data-atomic-instance={i}>{i === 0 ? "\"Fresh Basket has completely changed how I shop for groceries. The produce arrives so fresh it feels like I picked it myself." : review.text}</p>
+                <div
+                  className="flex items-center gap-3 pt-4 border-t border-gray-50"
+                  data-atomic-id="a13vhf3u"
+                  data-atomic-instance={i}>
+                  <div
+                    className="w-10 h-10 rounded-full overflow-hidden bg-[#E8F5E9] flex-shrink-0"
+                    data-atomic-id="a1nbw62l"
+                    data-atomic-instance={i}>
                     <img
                       src={review.avatar}
                       alt={review.name}
@@ -685,11 +778,18 @@ export default function HomePage() {
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
-                    />
+                      data-atomic-id="a16cj2je"
+                      data-atomic-instance={i} />
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-gray-900">{review.name}</p>
-                    <p className="text-xs text-gray-400">{review.location} · {review.product}</p>
+                  <div data-atomic-id="a1ndb073" data-atomic-instance={i}>
+                    <p
+                      className="text-sm font-bold text-gray-900"
+                      data-atomic-id="a2bt3ov"
+                      data-atomic-instance={i}>{review.name}</p>
+                    <p
+                      className="text-xs text-gray-400"
+                      data-atomic-id="a2bt5dd"
+                      data-atomic-instance={i}>{review.location} · {review.product}</p>
                   </div>
                 </div>
               </motion.div>
@@ -697,20 +797,30 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       {/* ── CTA / Newsletter ─────────────────────────────────────────────── */}
-      <section id="contact" className="py-24 bg-[#1B5E20] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#2E7D32]/40 blur-[100px]" />
+      <section
+        id="contact"
+        className="py-24 bg-[#1B5E20] relative overflow-hidden"
+        data-atomic-id="abr6otv">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          data-atomic-id="a1f5r078">
+          <div
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#2E7D32]/40 blur-[100px]"
+            data-atomic-id="a17yupvr" />
         </div>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+          data-atomic-id="a1f75ubq">
           <motion.div
             {...motionProps}
             variants={staggerContainer}
           >
             <motion.div variants={scaleIn} className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
               <Sparkles className="w-3.5 h-3.5 text-[#F9A825]" />
-              <span className="text-xs font-bold text-white tracking-wide uppercase">Limited Time Offer</span>
+              <span
+                className="text-xs font-bold text-white tracking-wide uppercase"
+                data-atomic-id="a1i9rb40">Limited Time Offer</span>
             </motion.div>
 
             <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-white tracking-tight text-balance mb-4">
@@ -726,12 +836,14 @@ export default function HomePage() {
                 animate={{ scale: 1, opacity: 1 }}
                 className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-2xl px-8 py-5"
               >
-                <div className="w-10 h-10 rounded-full bg-[#F9A825] flex items-center justify-center">
+                <div
+                  className="w-10 h-10 rounded-full bg-[#F9A825] flex items-center justify-center"
+                  data-atomic-id="a183y32g">
                   <Check className="w-5 h-5 text-white" />
                 </div>
-                <div className="text-left">
-                  <p className="text-white font-bold">You're on the list.</p>
-                  <p className="text-green-200 text-sm">Check your inbox for your 20% discount code.</p>
+                <div className="text-left" data-atomic-id="a185cx6y">
+                  <p className="text-white font-bold" data-atomic-id="ac7jxqy">You're on the list.</p>
+                  <p className="text-green-200 text-sm" data-atomic-id="ac7jzfg">Check your inbox for your 20% discount code.</p>
                 </div>
               </motion.div>
             ) : (
@@ -747,11 +859,11 @@ export default function HomePage() {
                   placeholder="Enter your email address"
                   required
                   className="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-green-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#F9A825] transition"
-                />
+                  data-atomic-id="a1nhgeo" />
                 <button
                   type="submit"
                   className="px-7 py-3.5 rounded-full bg-[#F9A825] text-white font-bold text-sm hover:bg-[#F57F17] transition-all duration-200 shadow-[0_4px_20px_rgba(249,168,37,0.4)] hover:shadow-[0_6px_28px_rgba(249,168,37,0.5)] whitespace-nowrap"
-                >
+                  data-atomic-id="a136ik3i">
                   Claim 20% Off
                 </button>
               </motion.form>
